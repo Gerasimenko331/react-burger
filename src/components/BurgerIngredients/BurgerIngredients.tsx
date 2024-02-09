@@ -1,24 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './BurgerIngredients.css';
+import {Tab} from '@ya.praktikum/react-developer-burger-ui-components';
 
 function BurgerIngredients() {
+  const [current, setCurrent] = React.useState('one')
   return (
     <div className="BurgerIngredients">
-      <header className="BurgerIngredients-header">
-        <img src={logo} className="BurgerIngredients-logo" alt="logo" />
-        <p>
-          Edit <code>src/BurgerIngredients.tsx</code> and save to reload.
-        </p>
-        <a
-          className="BurgerIngredients-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p className="text text_type_main-large pt-10 pb-5">
+        Соберите бургер
+      </p>
+      <div style={{ display: 'flex'}}>
+      <Tab value="one" active={current === 'one'} onClick={setCurrent}>
+        Булки
+      </Tab>
+      <Tab value="two" active={current === 'two'} onClick={setCurrent}>
+        Соусы
+      </Tab>
+      <Tab value="three" active={current === 'three'} onClick={setCurrent}>
+        Начинки
+      </Tab>
+    </div>
+    <p className="text text_type_main-medium pt-10 pb-6">
+        Булки
+      </p>
     </div>
   );
 }
